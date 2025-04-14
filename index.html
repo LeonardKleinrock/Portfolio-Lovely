@@ -1,0 +1,377 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Ramos Portfolio</title>
+
+  <!-- AOS Animation CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.css" rel="stylesheet">
+
+  <!-- FontAwesome for icons -->
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" rel="stylesheet">
+
+  <style>
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      margin: 0;
+      padding: 0;
+      text-align: center;
+      background: linear-gradient(to bottom right, #e6f7ec, #c3e6c3);
+      color: #1a3c1a;
+      transition: background 0.3s ease, color 0.3s ease;
+    }
+
+    nav {
+      background-color: rgba(222, 231, 158, 0.85);
+      padding: 15px;
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      box-shadow: 0 0 15px #00cc66;
+      backdrop-filter: blur(5px);
+    }
+
+    nav ul {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+    }
+
+    nav li {
+      display: inline;
+      margin: 0 15px;
+    }
+
+    nav a {
+      text-decoration: none;
+      font-weight: bold;
+      color: #006633;
+      transition: color 0.3s;
+    }
+
+    nav a:hover {
+      color: #00cc66;
+    }
+
+    .hero {
+      background: linear-gradient(to bottom, #d9f7e3, #c2eac7);
+      height: 100vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      padding: 20px;
+      color: #003300;
+    }
+
+    .profile-pic-container {
+      margin-bottom: 40px;
+      border: 5px solid #00cc66;
+      border-radius: 50%;
+      overflow: hidden;
+      width: 280px;
+      height: 280px;
+      box-shadow: 0 0 25px #00cc66;
+      transition: box-shadow 0.3s ease;
+    }
+
+    .profile-pic-container:hover {
+      box-shadow: 0 0 40px #00ff80;
+    }
+
+    .hero h1 span {
+      text-decoration: underline;
+      color: #00cc66;
+    }
+
+    .hero button {
+      margin-top: 20px;
+      padding: 12px 30px;
+      background: #00cc66;
+      color: black;
+      border: none;
+      font-size: 1.2em;
+      font-weight: bold;
+      border-radius: 10px;
+      cursor: pointer;
+      box-shadow: 0 0 15px #00cc66;
+      transition: transform 0.3s ease, background 0.3s ease;
+    }
+
+    .hero button:hover {
+      background: #00ff88;
+      transform: scale(1.05);
+    }
+
+    .section-green,
+    .section-darkgreen,
+    .contact-section {
+      padding: 60px 20px;
+    }
+
+    .section-green {
+      background-color: #e1f5e4;
+    }
+
+    .section-darkgreen {
+      background: linear-gradient(to bottom, #d0f0d8, #b6e7c2);
+      color: #1a3c1a;
+    }
+
+    h2 {
+      font-size: 2em;
+      margin-bottom: 20px;
+      color: #00cc66;
+      text-shadow: 0 0 5px #00cc66;
+    }
+
+    .skills-container {
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 20px;
+    }
+
+    .skill-box {
+      background: #f2fff5;
+      border: 2px solid #00cc66;
+      padding: 20px;
+      width: 250px;
+      color: #003300;
+      box-shadow: 0 0 15px #00cc66;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      border-radius: 10px;
+    }
+
+    .skill-box:hover {
+      transform: scale(1.05);
+      box-shadow: 0 0 25px #00cc66;
+    }
+
+    .feedbacks {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 20px;
+    }
+
+    .feedback-item {
+      display: flex;
+      align-items: center;
+      gap: 15px;
+      background: #f2fff5;
+      padding: 20px;
+      border-radius: 10px;
+      width: 100%;
+      max-width: 600px;
+      color: #003300;
+      box-shadow: 0 0 15px #00cc66;
+      transition: transform 0.3s ease;
+    }
+
+    .feedback-item:hover {
+      transform: scale(1.03);
+      box-shadow: 0 0 25px #00cc66;
+    }
+
+    .avatar {
+      width: 50px;
+      height: 50px;
+      border-radius: 50%;
+      border: 2px solid #00cc66;
+    }
+
+    .contact-list {
+      list-style: none;
+      padding: 0;
+      margin: 0 auto;
+      max-width: 600px;
+    }
+
+    .contact-list li {
+      margin: 15px 0;
+    }
+
+    .contact-list a {
+      color: #006633;
+      font-size: 1.2em;
+      text-decoration: none;
+      transition: color 0.3s ease;
+    }
+
+    .contact-list a:hover {
+      color: #00cc66;
+      text-decoration: underline;
+    }
+
+    .contact-list i {
+      margin-right: 10px;
+      font-size: 1.5em;
+      color: #00cc66;
+    }
+
+    hr.divider {
+      border: 0;
+      height: 2px;
+      background: linear-gradient(to right, transparent, #00cc66, transparent);
+      margin: 40px auto;
+      width: 80%;
+    }
+
+    /* Back to Top Button */
+    #backToTop {
+      position: fixed;
+      bottom: 20px;
+      right: 20px;
+      padding: 10px 15px;
+      border: none;
+      border-radius: 50%;
+      background: #00cc66;
+      color: white;
+      font-size: 18px;
+      cursor: pointer;
+      display: none;
+      box-shadow: 0 0 10px #00cc66;
+      z-index: 999;
+    }
+
+    /* Dark Mode Styles */
+    body.dark-mode {
+      background: linear-gradient(to bottom right, #1a1a1a, #2e2e2e);
+      color: #f0f0f0;
+    }
+
+    body.dark-mode nav {
+      background-color: rgba(30, 30, 30, 0.9);
+    }
+
+    body.dark-mode a,
+    body.dark-mode h2,
+    body.dark-mode .skill-box,
+    body.dark-mode .feedback-item,
+    body.dark-mode .contact-list a {
+      color: #e0ffe0 !important;
+    }
+
+    body.dark-mode .skill-box,
+    body.dark-mode .feedback-item {
+      background: #2a2a2a;
+      border-color: #e39700;
+    }
+  </style>
+</head>
+<body>
+
+  <nav>
+    <ul>
+      <li><a href="#home">Home</a></li>
+      <li><a href="#about">About</a></li>
+      <li><a href="#skills">My Skills</a></li>
+      <li><a href="#feedback">Feedback</a></li>
+      <li><a href="#contact">Contact and Location</a></li>
+    </ul>
+  </nav>
+
+  <header class="hero" id="home">
+    <div class="profile-pic-container" data-aos="fade-up">
+      <img src="img.jpeg" width="280" height="280">
+    </div>
+    <h1 data-aos="fade-down">Hi, I'm <span>Lovely Ramos</span></h1>
+    <p data-aos="fade-down" data-aos-delay="200">Welcome to my Portfolio!!</p>
+    <button id="hireBtn" data-aos="fade-up" data-aos-delay="400">HIRE ME</button>
+  </header>
+
+  <hr class="divider">
+
+  <section id="about" class="section-green" data-aos="fade-up">
+    <h2>About Me</h2>
+    <p style="max-width: 800px; margin: 0 auto;">
+      Hi, I am Lovely Ramos, a passionate student from Tiaong Quezon, with a creative mind and a heart full of ambitions.
+      I love turning simple ideas into meaningful outputs and strive to grow through every opportunity and challenge that comes my way.
+    </p>
+  </section>
+
+  <section id="skills" class="section-green" data-aos="fade-down">
+    <h2>My Skills</h2>
+    <div class="skills-container">
+      <div class="skill-box" data-aos="fade-up">Video and Photo Editing</div>
+      <div class="skill-box" data-aos="fade-down">Creating Simple Design in Canva</div>
+      <div class="skill-box" data-aos="fade-up">Basic HTML AND CSS</div>
+      <div class="skill-box" data-aos="fade-down">Basic UI/UX Design</div>
+    </div>
+  </section>
+
+  <section id="feedback" class="section-darkgreen">
+    <h2 data-aos="fade-up">Feedbacks</h2>
+    <div class="feedbacks">
+      <div class="feedback-item" data-aos="fade-down">
+        <img src="hi.jpeg" alt="avatar" class="avatar"/>
+        <p>Shows strong potential in tech-related tasks like HTML, CSS, and Basic Programming.</p>
+      </div>
+      <div class="feedback-item" data-aos="fade-up">
+        <img src="hel.jpeg" alt="avatar" class="avatar"/>
+        <p>Quiet but Observant—completes tasks with focus and dedication.</p>
+      </div>
+      <div class="feedback-item" data-aos="fade-down">
+        <img src="hello.jpeg" alt="avatar" class="avatar"/>
+        <p>Great at tackling challenging projects and always delivers on time!</p>
+      </div>
+    </div>
+  </section>
+
+  <hr class="divider">
+
+  <section id="contact" class="contact-section" data-aos="fade-up">
+    <h2>Contact and Location</h2>
+    <ul class="contact-list">
+      <li><a href="tel:+639109679015"><i class="fas fa-phone-alt"></i>+639109679015</a></li>
+      <li><a href="mailto:lovelyramos2003@gmail.com"><i class="fas fa-envelope"></i>lovelyramos2003@gmail.com</a></li>
+      <li><a href="https://www.google.com/maps?q=Brgy+San+Juan,+Tiaong,+Quezon" target="_blank"><i class="fas fa-map-marker-alt"></i>Brgy San Juan, Tiaong, Quezon</a></li>
+      <li><a href="https://www.facebook.com/share/15sXsHDFkb/" target="_blank"><i class="fab fa-facebook"></i>Visit My Facebook</a></li>
+    </ul>
+  </section>
+
+  <!-- Back to Top Button -->
+  <button id="backToTop">↑</button>
+
+  <!-- Dark Mode Toggle -->
+  <div style="position:fixed;bottom:20px;left:20px;">
+    <label style="color:#003300;font-weight:bold;">
+      <input type="checkbox" id="toggleDarkMode" />
+      Dark Mode
+    </label>
+  </div>
+
+  <!-- AOS JS -->
+  <script src="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.js"></script>
+
+  <script>
+    document.addEventListener('DOMContentLoaded', function () {
+      AOS.init({ duration: 1200, once: true });
+
+      const hireBtn = document.getElementById('hireBtn');
+      hireBtn.addEventListener('click', () => {
+        alert("Thank you for your interest! You will be redirected to my email.");
+        window.location.href = "mailto:lovelyramos123@gmail.com";
+      });
+
+      const backToTop = document.getElementById("backToTop");
+      window.addEventListener('scroll', () => {
+        backToTop.style.display = window.scrollY > 300 ? "block" : "none";
+      });
+      backToTop.addEventListener("click", () => {
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+      });
+
+      const toggle = document.getElementById("toggleDarkMode");
+      toggle.addEventListener("change", () => {
+        document.body.classList.toggle("dark-mode", toggle.checked);
+      });
+
+      console.log("Hi I'm Lovely Ramos. Feel free to explore my portfolio site!");
+    });
+  </script>
+
+</body>
+</html>
